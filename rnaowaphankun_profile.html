@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile Homepage</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS to apply Courier New font and ensure full height */
+        body {
+            font-family: "Courier New", Courier, monospace; /* Apply Courier New font */
+            font-size: 16pt; /* Set font size to 16pt */
+            background-color: #000066; /* dark blue background */
+            color: #ffffff; /* White text color */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            margin: 0; /* Remove default body margin */
+        }
+        .profile-container {
+            background-color: #0000ff; /* blue for container */
+            padding: 2.5rem; /* Add padding to the container */
+            border-radius: 1rem; /* Apply rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            text-align: center; /* Center text within the container */
+            max-width: 90%; /* Ensure responsiveness for smaller screens */
+            width: fit-content; /* Adjust container width to content */
+            min-width: 320px; /* Minimum width for the container */
+        }
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 640px) {
+            .profile-container {
+                padding: 1.5rem;
+            }
+            body {
+                font-size: 12pt; /* Slightly smaller font for mobile */
+            }
+        }
+        table {
+            border-collapse: collapse; /* Collapse table borders */
+        }
+        th, td {
+            border: 1px solid #ccff66; /* Lighter border for table cells for better visibility */
+            padding: 0.75rem; /* Padding for table cells */
+        }
+        th {
+            background-color: #ccff66; /* Header background color */
+            font-weight: bold; /* Bold headers */
+            color: #0000ff;
+        }
+        /* Styles for the cat animation container */
+        .cat-animation-container {
+            width: 100%;
+            height: 90px; /* Fixed height for the animation area */
+            position: relative; /* Allows absolute positioning of the cat */
+            overflow: hidden; /* Hides the cat when it moves out of bounds */
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            /* Removed display: flex, align-items, justify-content from here */
+        }
+
+        .cat-face {
+            white-space: pre; /* Preserves whitespace for ASCII art */
+            position: absolute; /* Allows movement */
+            font-size: 18pt; /* Slightly larger font for the cat */
+            color: #00ff99; /* Yellow/gold color for the cat */
+            left: 0; /* Initial position at the left edge */
+            top: 50%; /* Center vertically within its container */
+            transform: translateY(-50%); /* Adjust for vertical centering */
+
+            /* CSS Animation properties */
+            animation: moveCat 8s linear infinite alternate; /* 8s duration, linear speed, infinite, alternate direction */
+        }
+
+        /* Keyframes for the cat animation */
+        @keyframes moveCat {
+            0% {
+                left: 0; /* Start at the left edge */
+            }
+            100% {
+                left: calc(100% - var(--cat-width, 100px)); /* Move to the right edge, accounting for cat's width */
+            }
+        }
+
+        /* Using CSS variables to dynamically set cat width for animation */
+        /* This is a simple approximation. For precise movement with responsive width,
+           JavaScript is usually more robust as CSS can't easily calculate dynamic element width.
+           We'll use a placeholder width for CSS animation. */
+        .cat-animation-container {
+            --cat-width: 100px; /* Approximate width of the cat face for animation calculation */
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Profile Picture Placeholder -->
+        <img src="https://jumpichiban.com/cdn/shop/files/IchibanKujiGintama20thAnniversaryGintamaExhibitionHatachiGathering-EPrizeElizabethRugMat_2.jpg?v=1747978026&width=1000" alt="Profile Picture" class="rounded-full mx-auto mb-6" width="320px" height="320px">
+
+        <h1 class="text-3xl font-bold mb-2">Rue N</h1>
+        <p class="text-xl mb-4">Computer Science Graduate Student</p>
+        <p class="text-xl mb-4">| Bradley University |</p>
+
+        <div class="max-w-xl mx-auto text-left">
+            <p class="mb-4">
+                Welcome to my personal homepage! I know my real name is hard to pronounce, you can just call me 'Neo', well it comes from the full name -- "Neo Armstrong Cyclone Jet Armstrong" -- that is my stage name. Nice to meet you!
+            </p>
+            <p class="mb-8">
+                I am fascinating about how computer can really help and makes us very convenient nowadays, so I chose to explore deeper about computer and technology at Bradley University! In the very near future I want to be a computational biologist, to discover and solve the biological problem just like the Alpha-Fold can! 
+            </p>
+            <p class="mb-12">
+              Besides studying I also enjoyed watching films, cartoons, anime, and many more, I have listed some of the most favorable films of mine here, check it out and connect with me if you are one these films fan!
+        </div>
+
+        <h2 class="text-2xl font-bold mb-4 mt-8">My Favorite films</h2>
+        <!-- The erroneous <style> tag has been removed from here -->
+        <div class="overflow-x-auto">
+            <table class="w-full text-left table-auto">
+                <thead>
+                    <tr>
+                        <th class="py-2 px-4">Film Name</th>
+                        <th class="py-2 px-4">Director</th>
+                        <th class="py-2 px-4">Year</th>
+                        <th class="py-2 px-4">Film Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 10 rows for film information -->
+                    <tr>
+                        <td class="py-2 px-4">Gintama</td>
+                        <td class="py-2 px-4">Shinji Takamatsu and Yoichi Fujita</td>
+                        <td class="py-2 px-4">2006</td>
+                        <td class="py-2 px-4">Animation</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4">Dragon Ball</td>
+                        <td class="py-2 px-4">Minoru Okazaki</td>
+                        <td class="py-2 px-4">1986</td>
+                        <td class="py-2 px-4">Animation</td>
+                    </tr>
+                     <tr>
+                        <td class="py-2 px-4">Demon Slayer</td>
+                        <td class="py-2 px-4">Koyoharu Gotouge</td>
+                        <td class="py-2 px-4">2021</td>
+                        <td class="py-2 px-4">Animation</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4">One Punch Man</td>
+                        <td class="py-2 px-4">ONE, Yusuke Maruta</td>
+                        <td class="py-2 px-4">2020</td>
+                        <td class="py-2 px-4">Animation</td>
+                    </tr>
+                    
+                    <tr>
+                        <td class="py-2 px-4">Attack On Titan</td>
+                        <td class="py-2 px-4">Hajime Isayama</td>
+                        <td class="py-2 px-4">2009</td>
+                        <td class="py-2 px-4">Animation</td>
+                    </tr>
+                    <tr>
+                        <td class="py-2 px-4">Harry Potter</td>
+                        <td class="py-2 px-4">J.K. Rolling</td>
+                        <td class="py-2 px-4">2001</td>
+                        <td class="py-2 px-4">Fantasy Movie</td>
+                    </tr>             
+                    <tr>
+                        <td class="py-2 px-4">Fantastic Beasts</td>
+                        <td class="py-2 px-4">J.K Rolling</td>
+                        <td class="py-2 px-4">2018</td>
+                        <td class="py-2 px-4">Fantasy Movie</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="cat-animation-container">
+            <div id="catFace" class="cat-face">
+           
+            _/\_/\_
+            ( o.o )
+            -> ^ <-
+            
+            </div>
+        </div>
+        
+        <div class="mt-6">
+            <a href="https://github.com/coding-choco" class="inline-block bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md mx-2 transition duration-300 ease-in-out">
+                GitHub
+            </a>
+            <a href="mailto:rnaowaphankun@mail.bradley.edu" class="inline-block bg-gray-700 hover:bg-gray-800 text-white py-2 px-4 rounded-md mx-2 transition duration-300 ease-in-out">
+                Email
+            </a>
+        </div>
+    
+</body>
+</html>
+
